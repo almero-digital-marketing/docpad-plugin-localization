@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-localization",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Adds localization support to DocPad when used with domains plugin",
   "author": "Almero Digital Marketing (http://almero.com)",
   "keywords": [
@@ -16,8 +16,7 @@
     "node": ">=0.4",
     "docpad": ">=6.66 <7"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "coffee-script": "~1.4.0"
   },

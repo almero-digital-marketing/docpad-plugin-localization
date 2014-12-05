@@ -10,11 +10,25 @@ module.exports = (BasePlugin) ->
             config = @getConfig()
             {templateData} = opts
             
-            templateData.loc = (res, document) ->
+            templateData.loc = (resources, document) ->
                 document ?= @getDocument()
-                localization = ''
-                resource = config[res]
-                if document.get('domain')? and resource?
-                    localization = resource[document.get('domain').code]
+                if resources instanceof Array
+                    localization = []
+                    for res in resources
+                        resource = config[res]
+                        if resource?
+                            if document.domain?
+                                localization.push resource[document.domain.code]
+                            else if document.get('domain')?
+                                localization.push resource[document.get('domain').code]
+                else
+                    localization = ''
+                    res = resources
+                    resource = config[res]
+                    if resource?
+                        if document.domain?
+                            localization = resource[document.domain.code]
+                        else if document.get('domain')?
+                            localization = resource[document.get('domain').code]
                 localization
             @
