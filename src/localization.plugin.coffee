@@ -18,17 +18,17 @@ module.exports = (BasePlugin) ->
                         resource = config[res]
                         if resource?
                             if document.domain?
-                                localization.push resource[document.domain.code]
+                                localization.push resource[document.domain.code.split('-')[0]]
                             else if document.get('domain')?
-                                localization.push resource[document.get('domain').code]
+                                localization.push resource[document.get('domain').code.split('-')[0]]
                 else
                     localization = ''
                     res = resources
                     resource = config[res]
                     if resource?
                         if document.domain?
-                            localization = resource[document.domain.code]
+                            localization = resource[document.domain.code.split('-')[0]]
                         else if document.get('domain')?
-                            localization = resource[document.get('domain').code]
+                            localization = resource[document.get('domain').code.split('-')[0]]
                 localization
             @
